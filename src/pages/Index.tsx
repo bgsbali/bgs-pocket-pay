@@ -35,8 +35,6 @@ export default function Index() {
             </div>
             <h1 className="text-3xl font-bold text-black mb-2">Wallet App</h1>
             <p className="text-black/80 text-sm mb-1">Surf Supply & Coffee Bar</p>            
-            {/* <h1 className="text-4xl font-normal text-black/80 mb-2">Wallet App</h1>
-            <p className="text-xl text-black/80 mb-1">Surf Supply & Coffee Bar</p> */}
             <p className="text-black/80 text-sm">Your cashless payment companion</p>
           </div>
 
