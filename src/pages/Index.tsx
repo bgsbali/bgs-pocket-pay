@@ -83,7 +83,7 @@ export default function Index() {
           </Button>
 
           <p className="text-black/70 text-xs mt-6">
-            Works at all BGS locations & online store
+            Works at all BGS locations
           </p>
         </div>
       </div>
