@@ -1,73 +1,120 @@
-# Welcome to your Lovable project
+# BGS Wallet App - Mobile Payment System
 
-## Project info
+A mobile cashless payment and member system for BGS Surf Supply & Coffee Bar customers. Built with React + TypeScript + Capacitor for iOS and Android.
 
-**URL**: https://lovable.dev/projects/7ad94208-dd08-4a08-84ae-c958cf27e2f4
+## 🌊 Features
 
-## How can I edit this code?
+- **Digital Wallet**: View balance and recent transactions
+- **QR Payments**: Pay in-store by showing QR code to cashier
+- **Top Up**: Add balance at store (cash/QRIS) or online
+- **Transaction History**: Track all payments and top-ups
+- **Profile Management**: Update personal information
+- **Auto-Login**: Account auto-created on first sign-in
+- **Security**: Auto-logout after 30 min inactivity, QR blur protection
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/7ad94208-dd08-4a08-84ae-c958cf27e2f4) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Web Development
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Mobile Development
+See [CAPACITOR_SETUP.md](./CAPACITOR_SETUP.md) for detailed instructions on building iOS and Android apps.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 App Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── pages/          # Main app screens
+│   ├── Auth.tsx           # Login/signup
+│   ├── Wallet.tsx         # Balance & recent transactions
+│   ├── Pay.tsx            # QR code payment
+│   ├── TopUp.tsx          # Top-up instructions
+│   ├── Transactions.tsx   # Full transaction history
+│   ├── Profile.tsx        # User profile management
+│   └── Help.tsx           # Help & support
+├── components/     # Reusable components
+├── contexts/       # Auth context
+├── services/       # API services (mock for MVP)
+└── types/          # TypeScript interfaces
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Design System
 
-## What technologies are used for this project?
+- **Colors**: Ocean blue primary, sunset orange secondary, teal accent
+- **Font**: Outfit (Google Fonts)
+- **Theme**: Clean, modern, mobile-first design inspired by GoPay/OVO
+- **Components**: Built on shadcn/ui with custom variants
 
-This project is built with:
+## 🔐 Authentication
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Email + password login
+- Auto-creates account if email doesn't exist
+- Linked to Shopify Customer Account (ready for integration)
+- Secure token storage
+- Auto-logout on inactivity
 
-## How can I deploy this project?
+## 📊 MVP Scope
 
-Simply open [Lovable](https://lovable.dev/projects/7ad94208-dd08-4a08-84ae-c958cf27e2f4) and click on Share -> Publish.
+✅ Customer wallet with balance
+✅ QR code payment system
+✅ Top-up instructions (store & online)
+✅ Transaction history
+✅ Profile management
+✅ Help & support
 
-## Can I connect a custom domain to my Lovable project?
+❌ Not in MVP: Admin dashboard, push notifications, transfers, gift cards, promo system
 
-Yes, you can!
+## 🔌 API Integration
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Currently using **mock services**. Replace with real BGS backend:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. `src/services/authService.ts` - Authentication API
+2. `src/services/walletService.ts` - Wallet & transaction API
+3. Shopify Storefront API integration for customer sync
+
+## 📲 Mobile Build
+
+```bash
+# 1. Export to GitHub from Lovable
+# 2. Clone and install dependencies
+git clone <your-repo>
+npm install
+
+# 3. Add platforms
+npx cap add ios
+npx cap add android
+
+# 4. Build and sync
+npm run build
+npx cap sync
+
+# 5. Open in native IDE
+npx cap open ios     # For iOS (Xcode)
+npx cap open android # For Android Studio
+```
+
+## 🌐 Technology Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Routing**: React Router v6
+- **Mobile**: Capacitor 6
+- **QR Codes**: qrcode.react
+- **State**: React Context + Hooks
+
+## 📝 Environment
+
+- Lovable preview URL configured for hot-reload during development
+- Change to production URL in `capacitor.config.ts` before publishing
+
+## 🤝 Support
+
+- Email: support@bgsbali.com
+- WhatsApp: +62 857 7374 1556
+
+## 📄 License
+
+© 2025 BGS Surf Supply & Coffee Bar. All rights reserved.
