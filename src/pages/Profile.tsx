@@ -67,7 +67,7 @@ export default function Profile() {
     <div className="min-h-screen bg-background pb-24">
       <div className="max-w-md mx-auto">
         {/* Header */}
-        <div className="gradient-ocean text-white p-6 rounded-b-[2rem] shadow-soft">
+        <div className="bg-black/90 text-white p-6 rounded-b-[2rem] shadow-soft">
           <h1 className="text-2xl font-bold text-center">Profile</h1>
           <p className="text-center text-white/80 text-sm mt-1">
             Manage your account settings

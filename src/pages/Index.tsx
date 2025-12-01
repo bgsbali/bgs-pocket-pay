@@ -24,17 +24,20 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary via-primary/90 to-accent">
+    // <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary via-primary/90 to-accent">
+    <div className="min-h-screen flex flex-col bg-black/20 from-black via-black/90 to-black">  
       <div className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-md text-center">
           {/* Logo */}
           <div className="animate-fade-in mb-8">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/10 backdrop-blur-sm rounded-3xl mb-6 shadow-soft">
-              <Waves className="h-12 w-12 text-white" />
+            <div className="inline-flex items-center justify-center w-24 mb-4">
+            <img src="/logo-svg-black.svg" alt="BGS Logo" />
             </div>
-            <h1 className="text-4xl font-bold text-white mb-2">BGS Wallet</h1>
-            <p className="text-xl text-white/90 mb-1">Surf Supply & Coffee Bar</p>
-            <p className="text-white/70 text-sm">Your cashless payment companion</p>
+            <h1 className="text-3xl font-bold text-black mb-2">Wallet App</h1>
+            <p className="text-black/80 text-sm mb-1">Surf Supply & Coffee Bar</p>            
+            {/* <h1 className="text-4xl font-normal text-black/80 mb-2">Wallet App</h1>
+            <p className="text-xl text-black/80 mb-1">Surf Supply & Coffee Bar</p> */}
+            <p className="text-black/80 text-sm">Your cashless payment companion</p>
           </div>
 
           {/* Features */}
@@ -76,12 +79,12 @@ export default function Index() {
           <Button
             onClick={() => navigate('/auth')}
             size="lg"
-            className="w-full h-14 text-lg font-semibold bg-white text-primary hover:bg-white/90 shadow-soft"
+            className="w-full h-14 text-lg font-semibold bg-black text-white hover:bg-white/90 shadow-soft"
           >
             Get Started
           </Button>
 
-          <p className="text-white/70 text-xs mt-6">
+          <p className="text-black/70 text-xs mt-6">
             Works at all BGS locations & online store
           </p>
         </div>

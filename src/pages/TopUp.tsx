@@ -13,7 +13,7 @@ export default function TopUp() {
     <div className="min-h-screen bg-background pb-24">
       <div className="max-w-md mx-auto">
         {/* Header */}
-        <div className="gradient-sunset text-white p-6 rounded-b-[2rem] shadow-soft">
+        <div className="bg-black/90 text-white p-6 rounded-b-[2rem] shadow-soft">
           <h1 className="text-2xl font-bold text-center">Top Up Balance</h1>
           <p className="text-center text-white/80 text-sm mt-1">
             Add credit to your BGS Wallet
@@ -59,7 +59,7 @@ export default function TopUp() {
 
                 <div className="bg-muted/50 rounded-lg p-3 mt-4">
                   <p className="text-xs text-muted-foreground">
-                    <strong>Available at:</strong> BGS Canggu, BGS Uluwatu, BGS Seminyak
+                    <strong>Available at:</strong> BGS Dreamland, BGS Uluwatu, BGS Kuta, BGS Ubud, BGS Canggu, BGS G-Land
                   </p>
                 </div>
               </div>

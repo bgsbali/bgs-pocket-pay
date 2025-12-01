@@ -26,7 +26,7 @@ export const BottomNav = () => {
                 className={cn(
                   'flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-smooth min-w-[64px]',
                   isActive
-                    ? 'text-primary'
+                    ? 'text-black'
                     : 'text-muted-foreground hover:text-foreground'
                 )}
               >

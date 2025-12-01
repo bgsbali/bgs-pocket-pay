@@ -62,16 +62,16 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary via-primary/90 to-accent">
+    <div className="min-h-screen flex flex-col bg-black/20 from-black via-black/90 to-black">
       <div className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="text-center mb-8 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl mb-4 shadow-soft">
-              <Waves className="h-10 w-10 text-white" />
+            <div className="inline-flex items-center justify-center w-24 mb-4">
+            <img src="/logo-svg-black.svg" alt="BGS Logo" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">BGS Wallet</h1>
-            <p className="text-white/80 text-sm">Surf Supply & Coffee Bar</p>
+            <h1 className="text-3xl font-bold text-black mb-2">Wallet App</h1>
+            <p className="text-black/80 text-sm">Surf Supply & Coffee Bar</p>
           </div>
 
           {/* Login Form */}
@@ -112,12 +112,12 @@ export default function Auth() {
 
               <Button
                 type="submit"
-                className="w-full h-12 text-base font-semibold"
+                className="w-full h-12 text-base font-semibold bg-black"
                 disabled={isLoading}
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2 className="mr-2 h-4 w-4 bg-black animate-spin" />
                     Signing in...
                   </>
                 ) : (
@@ -126,13 +126,13 @@ export default function Auth() {
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-muted-foreground">
+            <div className="mt-6 text-center text-sm text-black/80">
               <p>Don't have an account?</p>
               <p className="mt-1">Your account will be created automatically on first login</p>
             </div>
           </div>
 
-          <p className="text-center text-xs text-white/70 mt-6">
+          <p className="text-center text-xs text-black/70 mt-6">
             Your wallet is linked to your BGS account
           </p>
         </div>

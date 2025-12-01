@@ -59,7 +59,7 @@ export default function Wallet() {
   return (
     <div className="min-h-screen bg-background pb-24">
       {/* Header with Balance */}
-      <div className="gradient-ocean text-white p-6 rounded-b-[2rem] shadow-soft">
+      <div className="bg-black/90 text-white p-6 rounded-b-[2rem] shadow-soft">
         <div className="max-w-md mx-auto">
           <div className="flex items-center justify-between mb-6">
             <div>
