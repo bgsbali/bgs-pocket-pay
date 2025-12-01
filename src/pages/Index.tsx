@@ -77,7 +77,7 @@ export default function Index() {
           <Button
             onClick={() => navigate('/auth')}
             size="lg"
-            className="w-full h-14 text-lg font-semibold bg-black text-white hover:bg-white/90 shadow-soft"
+            className="w-full h-14 text-lg font-semibold bg-black text-white hover:bg-black/90 shadow-soft"
           >
             Get Started
           </Button>
