@@ -1,91 +1,68 @@
+import { supabase } from '@/integrations/supabase/client';
 import { Wallet, Transaction } from '@/types';
 
-// Mock API - Replace with actual BGS backend API
 class WalletService {
-  private baseUrl = '/api/wallet'; // Placeholder
+  async getBalance(): Promise<Wallet | null> {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
 
-  async getBalance(token: string): Promise<Wallet> {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 600));
+    const { data, error } = await supabase
+      .from('wallets')
+      .select('*')
+      .eq('user_id', user.id)
+      .maybeSingle();
 
-    return {
-      balance: 500000,
-      currency: 'IDR',
-    };
+    if (error) {
+      console.error('Error fetching wallet:', error);
+      return null;
+    }
+
+    return data as Wallet | null;
   }
 
-  async getTransactions(token: string, limit = 50): Promise<Transaction[]> {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 700));
+  async getTransactions(limit = 50): Promise<Transaction[]> {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return [];
 
-    // Mock recent transactions
-    const mockTransactions: Transaction[] = [
-      {
-        id: 'txn_001',
-        type: 'payment',
-        amount: -45000,
-        date: new Date(Date.now() - 1000 * 60).toISOString(),
-        source: 'BGS Canggu',
-        location: 'Canggu Store',
-        description: 'Almond Latte',
-        status: 'completed',
-      },
-      {
-        id: 'txn_002',
-        type: 'payment',
-        amount: -55000,
-        date: new Date(Date.now() - 1000 * 120).toISOString(),
-        source: 'BGS Canggu',
-        location: 'Canggu Store',
-        description: 'BGS Blondie',
-        status: 'completed',
-      },
-      {
-        id: 'txn_003',
-        type: 'topup',
-        amount: 300000,
-        date: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
-        source: 'Cash - Store',
-        location: 'BGS Canggu',
-        description: 'Top up via cash',
-        status: 'completed',
-      },
-      {
-        id: 'txn_004',
-        type: 'payment',
-        amount: -120000,
-        date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(),
-        source: 'BGS Online Store',
-        description: 'BGS T-Shirt',
-        status: 'completed',
-      },
-      {
-        id: 'txn_005',
-        type: 'topup',
-        amount: 500000,
-        date: new Date(Date.now() - 1000 * 60 * 60 * 24 * 3).toISOString(),
-        source: 'Online Top-up',
-        description: 'Top up via website',
-        status: 'completed',
-      },
-    ];
+    const { data, error } = await supabase
+      .from('transactions')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(limit);
 
-    return mockTransactions.slice(0, limit);
+    if (error) {
+      console.error('Error fetching transactions:', error);
+      return [];
+    }
+
+    return (data || []) as Transaction[];
   }
 
-  async processPayment(token: string, amount: number): Promise<Transaction> {
-    // Simulate payment processing
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  async processPayment(amount: number, description: string, location?: string): Promise<Transaction | null> {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
 
-    return {
-      id: 'txn_' + Date.now(),
-      type: 'payment',
-      amount: -amount,
-      date: new Date().toISOString(),
-      source: 'BGS Store',
-      description: 'Store purchase',
-      status: 'completed',
-    };
+    const { data, error } = await supabase
+      .from('transactions')
+      .insert({
+        user_id: user.id,
+        type: 'payment',
+        amount: -Math.abs(amount),
+        description,
+        location,
+        source: 'BGS Store',
+        status: 'completed',
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error processing payment:', error);
+      return null;
+    }
+
+    return data as Transaction;
   }
 }
 
