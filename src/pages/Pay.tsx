@@ -10,11 +10,11 @@ import {
 } from '@/components/ui/alert';
 
 export default function Pay() {
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const [isBlurred, setIsBlurred] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const qrValue = `BGS_WALLET:${user?.qrCodeUrl}:${user?.id}`;
+  const qrValue = `BGS_WALLET:${profile?.qr_code}:${user?.id}`;
 
   const handleRefresh = () => {
     setRefreshKey(prev => prev + 1);
@@ -42,8 +42,8 @@ export default function Pay() {
 
           <div className="bg-card rounded-3xl p-8 shadow-card border border-border">
             <div className="text-center mb-6">
-              <h2 className="text-lg font-bold">{user?.name}</h2>
-              <p className="text-sm text-muted-foreground">{user?.email}</p>
+              <h2 className="text-lg font-bold">{profile?.name}</h2>
+              <p className="text-sm text-muted-foreground">{profile?.email}</p>
             </div>
 
             <div 

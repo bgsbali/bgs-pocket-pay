@@ -18,7 +18,7 @@ import { User, Mail, Phone, LogOut, HelpCircle, Shield, Loader2 } from 'lucide-r
 import { useToast } from '@/hooks/use-toast';
 
 export default function Profile() {
-  const { user, logout, updateProfile } = useAuth();
+  const { user, profile, logout, updateProfile } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
   
@@ -26,8 +26,8 @@ export default function Profile() {
   const [isSaving, setIsSaving] = useState(false);
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   
-  const [name, setName] = useState(user?.name || '');
-  const [phone, setPhone] = useState(user?.phone || '');
+  const [name, setName] = useState(profile?.name || '');
+  const [phone, setPhone] = useState(profile?.phone || '');
 
   const handleSave = async () => {
     if (!name.trim()) {
@@ -143,8 +143,8 @@ export default function Profile() {
                     variant="outline"
                     className="flex-1"
                     onClick={() => {
-                      setName(user?.name || '');
-                      setPhone(user?.phone || '');
+                      setName(profile?.name || '');
+                      setPhone(profile?.phone || '');
                       setIsEditing(false);
                     }}
                     disabled={isSaving}
